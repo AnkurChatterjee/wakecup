@@ -1,0 +1,632 @@
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300;400;500;600;700&display=swap');
+html{
+    min-height: 100vh;
+    max-width: 1280px;
+    font-family: 'Quicksand', sans-serif;
+    margin: 0 auto;
+}
+body{
+    border: 1px solid #ddd;
+}
+.page-container{
+    margin-bottom: 50px;
+}
+.header{
+    background-color: #362222;
+    display: flex;
+    justify-content: space-between;
+}
+.header .logo{
+    display: flex;
+    align-items: center;
+    flex: 1;
+}
+.header .logo img{
+    width: 110px;
+}
+.header .logo h1{
+    color: #f2edd7;
+    margin-left: 5px;
+    font-size: 35px;
+    font-weight: bold;
+    margin-left: 50px;
+}
+.navigation{
+    display: flex;
+    /*flex-wrap: wrap;*/
+    border-radius: 5px;
+    background-color: #f2edd7;
+    margin: 10px;
+    flex: 1;
+}
+.navigation p{
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: center;
+    background-color: #362222;
+    margin: 8px;
+    padding: 10px;
+    width: 100%;
+    border-radius: 5px;
+    position: relative;
+    box-shadow: 4px 4px 0px black;
+    transition: top 0.25s, left 0.25s, box-shadow 0.5s ease;
+}
+.navigation p a{
+    color: #f2edd7;
+    text-decoration: none;
+    font-size: 18px;
+    text-align: center;
+}
+.navigation p:hover{
+    background-color: #443737df;
+    box-shadow: 3px 3px 0px black;
+    top: 1px;
+    left: 1px;
+}
+.navigation .active{
+    background-color: #443737df;
+}
+
+/*Home Page*/
+.banner{
+    display: flex;
+    height: 350px;
+    margin: 5px;
+    text-align: center;
+}
+.banner .cafes{
+    flex: 1;
+    background-image: url("OurCafes/OurCafes.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-right: 5px;
+}
+.banner .source{
+    flex: 1;
+    background-image: url("TheSource/Source.jpg");
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-left: 5px;
+}
+.banner .cafes a{
+    color: white;
+    font-size: 48px;
+    text-decoration: none;
+}
+.banner .source a{
+    color: white;
+    font-size: 48px;
+    text-decoration: none;
+}
+.bodytext{
+    background-color: #f2edd7;
+    width: 90%;
+    margin: 50px auto;
+    padding: 20px;
+    border-radius: 15px;
+}
+.footer1{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    background-color: #333333;
+    color: white;
+    box-sizing: border-box;
+    margin-top: 70px;
+}
+.footoptions{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    column-gap: 50px;
+    
+}
+.leftfoot{
+    margin-left: 50px;
+    padding: 10px;
+}
+.leftfoot a{
+    color: white;
+}
+.rightfoot{
+    margin-right: 50px;
+    padding: 10px;
+}
+.rightfoot img{
+    border-radius: 25px;
+}
+.rightfoot .sub input[type="text"]{
+    padding: 10px;
+    width: 100%;
+}
+.rightfoot .sub  button{
+    padding: 5px;
+    background-color: #ff0000;
+    border: none;
+    color: white;
+    border-radius: 5px;
+    margin: 5px;
+}
+.footer2{
+    background-color: #222222;
+    color: white;
+    text-align: center;
+    padding: 10px;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 2;
+}
+.footer2 a{
+    color: white;
+    font-size: 12px;
+}
+
+/*About Us*/
+.quote{
+    background-image: url("AboutUs/AboutUs.jpg");
+    background-size: cover;
+    width: 100%;
+    height: 400px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255,255,196);
+    font-size: 60px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    text-align: center;
+    background-color: #222222;
+}
+.quotetext{
+    justify-self: center;
+    position: relative;
+    animation: fall 1s ease-in forwards;
+}
+@keyframes fall{
+    0% {top: -100px; opacity: 0;}
+    100% {top: 0; opacity: 1;}
+}
+.section-heading{
+    margin: 20px 50px;
+    border-top: 3px solid #ddd;
+    border-bottom: 3px solid #ddd;
+    font-size: 24px;
+    padding: 10px;
+    font-weight: bolder;
+}
+.maintext{
+    margin: 20px 60px;
+}
+
+/*Coffee Blends*/
+.blends-banner{
+    background-image: url("CoffeeBlends/CoffeeBlends.jpg");
+    background-size: cover;
+    height: 200px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px;
+}
+.blends-heading{
+    margin: 50px auto;
+    font-size: 64px;
+    font-weight: 900;
+}
+.blendoptions{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.option img{
+    width: 410px;
+    margin-bottom: 30px;
+    transition: all 0.5s ease-in-out;
+    border-radius: 10px;
+}
+.option{
+    width: 450px;
+    margin: 10px;
+    border: 1px solid #ddd;
+    border-radius: 15px;
+    box-sizing: border-box;
+    padding: 20px;
+}
+.blendoptions div a{
+    color: black;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 5px;
+}
+.option img:hover{
+    opacity: 0.7;
+    transform: scale(0.95);
+}
+
+/*Unique Blends and Classics*/
+.itemsgrid{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-gap: 50px;
+    margin: 30px;
+    margin-top: 50px;
+}
+.item img{
+    width: 50%;
+    object-fit: contain;
+    border-radius: 25px;
+    transition: all 0.25s ease-in-out;
+}
+.itemsgrid .item{
+    border: 1px solid #ddd;
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+}
+span.mrp{
+    font-size: 24px;
+    padding: 5px;
+    font-weight: bold;
+}
+.item div button{
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    padding: 10px 24px;
+    border-radius: 5px;
+    margin: 5px;
+    font-weight: bold;
+}
+.item div button:hover{
+    background-color: #45a049;
+}
+.item img:hover{
+    transform: scale(1.5);
+    opacity: 0.8;
+}
+
+/*Brewing Equipments*/
+.equipments-banner{
+    background-image: url("BrewingEquipment/BrewingEquipments.jpg");
+    background-size: cover;
+    height: 350px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: rgb(255,255,196);
+    font-size: 64px;
+    font-weight: bolder;
+}
+.equipments-heading{
+    margin: 20px 50px;
+    border-top: 3px solid #ddd;
+    border-bottom: 3px solid #ddd;
+    font-size: 24px;
+    padding: 10px;
+    font-weight: bolder;
+}
+
+/*Learning With Us*/
+.learning-banner{
+    display: flex;
+    justify-content: center;
+}
+.learning-banner img{
+    width: 100%;
+    height: 400px;
+    object-fit: cover;
+}
+.courses{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+.course{
+    width: 350px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    margin: 30px;
+    padding: 20px;
+}
+.course-image{
+    background-color: black;
+    border-radius: 15px;
+}
+.course img{
+    width: 100%;
+    border-radius: 15px;
+    transition: all 0.5s ease-in-out;
+}
+.course button{
+    background-color: #ff0000;
+    border: none;
+    color: white;
+    font-size: 18px;
+    padding: 10px 24px;
+    border-radius: 10px;
+}
+.course button:hover{
+    background-color: #ff6363;
+}
+.course img:hover{
+    opacity: 0.5;
+    transform: scale(0.97);
+}
+
+/*Contact*/
+.contact-form{
+    display: flex;
+}
+.contact-form form{
+    font-size: 24px;
+    display: grid;
+    grid-template-columns: 300px 1fr;
+    grid-gap: 30px;
+    margin: 0 50px;
+    width: 60%;
+}
+.contact-form .s1{
+    color: red;
+}
+.contact-form input[type="text"], input[type="email"], input[type="number"]{
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.contact-form input[type="radio"]{
+    width: 20px;
+    height: 20px;
+    margin-right: 5px;
+}
+.contact-form select{
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+}
+.radio{
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+}
+.contact-form textarea{
+    border: 1px solid #ccc;
+    font-size: 16px;
+    border-radius: 8px;
+}
+.contact-form button{
+    width: 30%;
+    padding: 12px 20px;
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #45a049;
+    color: white;
+    border-style: none;
+    border-radius: 5px;
+}
+.contact-form button:hover{
+    background-color: #4caf50;
+}
+
+/*The Source*/
+.source-banner{
+    background-image: url("TheSource/TheSource.jpg");
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 64px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+.estate img{
+    margin: 20px 70px;
+}
+
+/*Our Cafes*/
+.cafes-banner{
+    background-image: url("OurCafes/cafe.jpg");
+    background-size: cover;
+    height: 300px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 64px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    
+}
+.addresses{
+    display: flex;
+    margin: 10px;
+}
+.address{
+    padding: 20px;
+    margin: 0px 20px;
+    color: white;
+    border-radius: 25px;
+}
+.cafe1{
+    background-color: #ff6363;
+}
+.cafe2{
+    background-color: seagreen;
+}
+.cafe3{
+    background-color: orange;
+}
+
+/*Tablet*/
+@media all and (min-width:601px) and (max-width: 950px){
+    .navigation{
+        flex-wrap: wrap;
+        justify-content: start;
+        font-size: 14px;
+    }
+    .header .logo img{
+        border-radius: 50%;
+        margin-left: 30px;
+    }
+    .navigation p{
+        padding: 10px;
+        margin: 5px;
+        flex: 1;
+    }
+    .footer2{
+        padding: 20px;
+    }
+    .page-container{
+        margin-bottom: 70px;
+    }
+    .option{
+        width: 350px;
+    }
+    .option img{
+        width: 310px;
+    }
+    .itemsgrid{
+        grid-gap: 30px;
+        margin: 20px;
+    }
+    .itemsgrid .item{
+        flex-direction: column;
+        align-items: center;
+    }
+    .contact-form form{
+        width: 100%;
+    }
+    .addresses{
+        flex-direction: column;
+    }
+    .address{
+        margin: 10px;
+    }
+}
+
+/*Mobile*/
+@media all and (max-width: 600px){
+    .header{
+        flex-direction: column;
+        align-items: center;
+        border-radius: 0px 0px 5px 5px;
+    }
+    .header .logo{
+        margin: 10px;
+    }
+    .header .logo img{
+        border-radius: 50%;
+    }
+    .navigation{
+        flex-direction: column;
+        width: 100%;
+        margin: 0px;
+    }
+    .navigation p{
+        width: 98%;
+        flex-direction: column;
+        padding: 10px 0px;
+        margin: 3px;
+    }
+    .navigation .last{
+        margin-bottom: 7px;
+    }
+    .header .logo h1{
+        margin-left: 0px;
+    }
+    .banner{
+        flex-direction: column;
+        height: 500px;
+    }
+    .banner .cafes{
+        margin: 5px;
+    }
+    .banner .source{
+        margin: 5px;
+    }
+    .bodytext{
+        margin: 20px auto;
+        width: 80%;
+    }
+    .footer1{
+        flex-direction: column;
+        align-items: center;
+    }
+    .footer2{
+        padding: 15px;
+    }
+    .page-container{
+        margin-bottom: 60px;
+    }
+    .leftfoot{
+        margin: 0px; 
+    }
+    .rightfoot{
+        margin: 0px;
+    }
+    .rightfoot .sub input[type="text"]{
+        width: 90%;
+    }
+    .option{
+        width: 320px;
+    }
+    .option img{
+        width: 280px;
+    }
+    .itemsgrid{
+        grid-template-columns: 1fr;
+        margin: 20px;
+    }
+    .itemsgrid .item{
+        flex-direction: column;
+        align-items: center;
+    }
+    .quote{
+        height: 250px;
+        font-size: 32px;
+    }
+    .blends-heading{
+        font-size: 36px;
+    }
+    .equipments-banner{
+        height: 250px;
+        font-size: 32px;
+        margin: 10px;
+    }
+    .equipments-heading{
+        font-size: 18px;
+    }
+    .learning-banner img{
+        height: 300px;
+    }
+    .contact-form form{
+        grid-template-columns: auto;
+        width: 100%;
+        grid-gap: 20px;
+    }
+    .contact-form button{
+        width: 50%;
+        font-size: 18px;
+    }
+    .source-banner{
+        height: 200px;
+        font-size: 54px;
+    }
+    .estate{
+        display: flex;
+        flex-direction: column;
+    }
+    .addresses{
+        flex-direction: column;
+    }
+    .address{
+        margin: 10px;
+    }
+    .maintext{
+        margin: 30px;
+    }
+}
+   
