@@ -1,0 +1,84 @@
+html {
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+.container{
+    width: 512px;
+    margin: 50px auto;
+    position: relative;
+}
+.header{
+    background-color: #075e54;
+    color: white;
+    text-align: center;
+}
+button{
+    background-color: #ff0000;
+    padding: 5px 10px;
+    color: white;
+    border-radius: 7px;
+    border-style: none;
+}
+#sendBtn{
+    border-radius: 50%;
+    font-size: larger;
+    padding: 10px 15px;
+}
+#name{
+    border-radius: 5px;
+    border-style: none;
+    padding: 5px;
+}
+#message{
+    border-radius: 25px;
+    border-style: none;
+    padding: 10px;
+    width: 300px;
+    overflow: hidden;
+    resize: none;
+    max-height: 100px;
+    margin-right: 5px;
+}
+table{
+    padding: 10px 20px;
+}
+.sentText{
+    background-color: bisque;
+    color: orangered;
+    display: flex;
+    flex-direction: column;
+    float: right;
+    clear: both;
+    padding: 5px 10px;
+    padding-right: 3px;
+    margin: 5px;
+    border-radius: 10px;
+    max-width: 400px;
+}
+.recievedText{
+    background-color: lightgoldenrodyellow;
+    color: green;
+    display: flex;
+    flex-direction: column;
+    float: left;
+    clear: both;
+    padding: 5px 10px;
+    padding-right: 3px;
+    margin: 5px;
+    border-radius: 10px;
+    max-width: 400px;
+}
+#s1{
+    font-weight: bold;
+    margin-right: 7px;
+}
+#s2{
+    word-wrap: break-word;
+    color: black;
+    margin-right: 7px;
+}
+#s3{
+    font-size: x-small;
+    padding: 0px;
+    text-align: right;
+    color: #333333;
+}

@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        html {
+            font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        }
+        .container{
+            width: 512px;
+            margin: 50px auto;
+            position: relative;
+        }
+        .header{
+            background-color: #075e54;
+            color: white;
+            text-align: center;
+        }
+        button{
+            background-color: #ff0000;
+            padding: 5px 10px;
+            color: white;
+            border-radius: 7px;
+            border-style: none;
+        }
+        #sendBtn{
+            border-radius: 50%;
+            font-size: larger;
+            padding: 10px 15px;
+        }
+        #name{
+            border-radius: 5px;
+            border-style: none;
+            padding: 5px;
+        }
+        #message{
+            border-radius: 25px;
+            border-style: none;
+            padding: 10px;
+            width: 300px;
+            overflow: hidden;
+            resize: none;
+            max-height: 100px;
+            margin-right: 5px;
+        }
+        table{
+            padding: 10px 20px;
+        }
+        .sentText{
+            background-color: bisque;
+            color: orangered;
+                display: flex;
+            flex-direction: column;
+            float: right;
+            clear: both;
+            padding: 5px 10px;
+            padding-right: 3px;
+            margin: 5px;
+            border-radius: 10px;
+            max-width: 400px;
+        }
+        .recievedText{
+            background-color: lightgoldenrodyellow;
+            color: green;
+            display: flex;
+            flex-direction: column;
+            float: left;
+            clear: both;
+            padding: 5px 10px;
+            padding-right: 3px;
+            margin: 5px;
+            border-radius: 10px;
+            max-width: 400px;
+        }
+        #s1{
+            font-weight: bold;
+            margin-right: 7px;
+        }
+        #s2{
+            word-wrap: break-word;
+            color: black;
+            margin-right: 7px;
+        }
+        #s3{
+            font-size: x-small;
+            padding: 0px;
+            text-align: right;
+            color: #333333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h2>Messaging App</h2>
+                <table>
+                    <tbody>
+                        <tr>
+                            <td><label for="name" style="font-size:larger;">Name</label></td>
+                            <td><input type="text" id="name">&nbsp;&nbsp;</td>
+                            <td><span id="s1"><button onclick="handleClick()">Submit</button></span></td>
+                        </tr>
+                    </tbody>
+                </table>
+            <div id="main"></div>
+        </div>
+        <div id="chatbox"></div>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script type="text/javascript">
+        let ele = document.getElementById('main');
+        let nameEle = document.getElementById('name');
+        let spanEle = document.getElementById('s1');
+        function auto_grow(element) {
+            element.style.height = "5px"
+            element.style.height = (element.scrollHeight-20)+"px";
+        }
+        function handleClick(){
+            ele.innerHTML = `<table>
+                            <tbody>
+                            <tr>
+                                <td><label for="message" style="font-size: 25px;">Message</label></td>
+                                <td><textarea id="message" value="" rows="1" oninput="auto_grow(this)"></textarea></td>
+                                <td><button id="sendBtn" onclick="sendMessage()">>></button><td>
+                            </tr>
+                            </tbody>
+                            </table>`;
+            nameEle.setAttribute('disabled',true);
+            spanEle.innerHTML = '';
+        }
+        let socket = io();
+        let inputId;
+        function sendMessage(){
+            let inputText = document.getElementById('message').value;
+            let inputName = document.getElementById('name').value;
+            let numId = Math.trunc(Math.random()*10**6).toString();
+            inputId = inputName+numId;
+            let inputTime = new Date().toTimeString();
+            inputTime = inputTime.substring(0,inputTime.lastIndexOf(':'));
+            let inputObj = {id: inputId, name: inputName, msg: inputText, time: inputTime};
+            document.getElementById('message').value = '';
+            socket.emit('message',inputObj);
+        }
+        socket.on('publish',(data) => {
+            let ele = document.getElementById('chatbox');
+            let inputName = document.getElementById('name').value;
+            let textClass;
+            data.id == inputId ? textClass = "sentText" : textClass = "recievedText";
+            ele.innerHTML += `<p class="${textClass}">
+                                    <span id="s1">${data.name}</span>
+                                    
+                                        <span id="s2"> ${data.msg}</span><span id="s3"> ${data.time}</span>
+                                    
+                            </p>`;
+        })
+    </script>
+</body>
+</html>
